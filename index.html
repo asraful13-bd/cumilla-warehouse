@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warehouse Expansion & 165ft Hybrid Shed | Steadfast Courier Ltd.</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Google Fonts: Anek Bangla -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Anek Bangla"', 'sans-serif'],
+          },
+          colors: {
+            steadfast: {
+              red: '#e11d48',
+              orange: '#f97316',
+              dark: '#060a12',
+              card: '#0c1322',
+              border: '#1e293b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * {
+      font-family: 'Anek Bangla', sans-serif !important;
+    }
+    #canvas-container canvas {
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 1rem;
+    }
+    .cad-dimension {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body class="bg-[#050811] text-slate-100 font-sans antialiased selection:bg-orange-500 selection:text-white">
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="fixed top-0 w-full z-50 bg-[#050811]/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Steadfast Official Full Vector Brand Logo -->
+      <div class="flex items-center">
+        <a href="#" class="flex flex-col group">
+          <svg viewBox="303 831 1394 338" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Steadfast Courier" class="brand-logo-full" style="--sf-logo-ink: #ffffff; height: 32px; width: auto; display: block;">
+            <path fill="var(--sf-logo-ink, #ffffff)" d="M640.36,856.8v170.38c0,4.02-5.75,4.71-6.69.8-9.97-41.71-30.1-79.47-57.65-110.5-1.2-1.35-1.15-3.38.12-4.66l58.42-58.42c2.14-2.14,5.8-.62,5.8,2.4Z"></path>
+            <path fill="var(--sf-logo-ink, #ffffff)" d="M617.45,837.29l-58.43,58.42c-1.27,1.27-3.31,1.32-4.66.12-31.03-27.55-68.79-47.69-110.5-57.65-3.91-.93-3.23-6.69.8-6.69h170.39c3.03,0,4.54,3.66,2.4,5.8Z"></path>
+            <path fill="#00BF6F" d="M537.08,917.65l-147.3,147.3c-2.14,2.14-5.8.62-5.8-2.4v-203.78c0-1.89,1.55-3.44,3.44-3.41,57.22.83,109.43,22.32,149.52,57.34,1.48,1.29,1.54,3.58.15,4.96Z"></path>
+            <path fill="#00BF6F" d="M613.1,1087.86h-203.8c-3.03,0-4.54-3.66-2.4-5.8l147.3-147.3c1.39-1.39,3.67-1.33,4.96.15,35.02,40.09,56.52,92.29,57.35,149.52.03,1.89-1.52,3.44-3.41,3.44Z"></path>
+            <path fill="#00BF6F" d="M383.97,1091.26v73.85c0,3.03-3.66,4.54-5.8,2.4l-28.36-28.36-45.49-45.49c-2.14-2.14-.62-5.8,2.4-5.8h73.85c1.88,0,3.4,1.52,3.4,3.4Z"></path>
+            <path fill="var(--sf-logo-ink, #ffffff)" d="M1292.29,1026.58c0,40.61-21.2,60.79-63.34,60.53-41.89-.77-62.83-23.5-62.83-68.45s17.88-69.47,53.9-70.75c13,0,23.72,4.1,31.94,12.42,2.44,2.47,6.63.77,6.63-2.7v-41.37c0-2.14,1.73-3.87,3.87-3.87h9.06c11.48,0,20.78,9.3,20.78,20.78v93.39ZM1201.1,1017.13c-.26,27.33,8.94,41.12,28.35,41.12s29.12-13.79,29.12-41.12c-.77-26.05-10.22-38.82-28.61-38.82s-27.84,12.77-28.86,38.82Z"></path>
+            <path fill="var(--sf-logo-ink, #ffffff)" d="M818.26,1041.68c0,33.2-26.02,45.44-61.8,45.44-18.9,0-33.2-4.08-42.39-11.98-9.3-7-14.37-17.33-15.21-30.89-.14-2.23,1.66-4.12,3.9-4.12h27.29c1.84,0,3.47,1.3,3.77,3.12,2.05,12.42,12.36,16.81,27.76,16.81,14.3,0,21.43-4.08,21.43-12.75,0-6.92-11.72-12.55-34.95-16.63-29.89-5.37-45.23-18.64-45.49-39.86,0-29.12,22.98-42.91,53.9-43.42,16.37,0,29.58,3.46,39.55,10.27.62.36,1.24.77,1.81,1.24,8.91,7.06,14.14,16.6,15.71,28.57.3,2.32-1.54,4.37-3.88,4.37h-26.94c-1.89,0-3.56-1.32-3.88-3.18-.67-4.02-2.19-7.19-4.51-9.62-.16-.15-.26-.31-.41-.36-3.51-2.89-9.19-4.44-16.94-4.44-13.27,0-19.93,3.56-19.93,10.48s8.67,12.24,26.33,15.54c22.98,4.59,38.05,10.48,45.44,17.4,6.4,6.61,9.45,14.82,9.45,24.01Z"></path>
+            <path fill="var(--sf-logo-ink, #ffffff)" d="M1626.9,1041.68c0,33.2-26.02,45.44-61.8,45.44-18.9,0-33.2-4.08-42.39-11.98-9.3-7-14.37-17.33-15.21-30.89-.14-2.23,1.66-4.12,3.9-4.12h27.29c1.84,0,3.47,1.3,3.77,3.12,2.05,12.42,12.36,16.81,27.76,16.81,14.3,0,21.43-4.08,21.43-12.75,0-6.92-11.72-12.55-34.95-16.63-29.89-5.37-45.23-18.64-45.49-39.86,0-29.12,22.98-42.91,53.9-43.42,16.37,0,29.58,3.46,39.55,10.27.62.36,1.24.77,1.81,1.24,8.91,7.06,14.14,16.6,15.71,28.57.3,2.32-1.54,4.37-3.88,4.37h-26.94c-1.89,0-3.56-1.32-3.88-3.18-.67-4.02-2.19-7.19-4.51-9.62-.16-.15-.26-.31-.41-.36-3.51-2.89-9.19-4.44-16.94-4.44-13.27,0-19.93,3.56-19.93,10.48s8.67,12.24,26.33,15.54c22.98,4.59,38.05,10.48,45.44,17.4,6.4,6.61,9.45,14.82,9.45,24.01Z"></path>
+            <path fill="var(--sf-logo-ink, #ffffff)" d="M1071.9,984.41h-26.5c-2.56,0-4.39-2.43-3.76-4.91,5.52-21.72,22.8-32.38,51.85-32.38,37.29,0,56.19,12.26,56.96,37.29v45.98c0,37.29-22.48,53.89-59,56.45-32.44,2.55-54.91-12.52-54.91-42.4.77-32.44,24.26-41.12,58.49-44.45,14.56-1.78,21.97-6.13,21.97-13.53-.77-7.66-7.92-11.5-21.97-11.5-10.67,0-17.1,2.42-19.66,7.44-.65,1.28-2.04,2.01-3.47,2.01ZM1117.5,1028.85v-6.87c0-2.7-2.68-4.54-5.22-3.61-6.64,2.44-14.01,4.52-21.86,6.13-13.54,2.56-20.44,8.94-20.44,18.9.77,10.73,6.38,15.84,17.11,15.84,18.9,0,30.39-11.24,30.39-30.39Z"></path>
+            <path fill="var(--sf-logo-ink, #ffffff)" d="M985.5,1049.83h26.5c2.56,0,4.39,2.43,3.76,4.91-5.52,21.72-22.8,32.38-51.85,32.38-37.29,0-56.19-12.26-56.96-37.29v-45.98c0-37.29,22.48-53.89,59-56.45,32.44-2.55,54.91,12.52,54.91,42.4-.77,32.44-24.26,41.12-58.49,44.45-14.56,1.78-21.97,6.13-21.97,13.53.77,7.66,7.92,11.5,21.97,11.5,10.67,0,17.1-2.42,19.66-7.44.65-1.28,2.04-2.01,3.47-2.01ZM939.9,1005.38v6.87c0,2.7,2.68,4.54,5.22,3.61,6.64-2.44,14.01,4.52,21.86-6.13,13.54-2.56,20.44-8.94,20.44-18.9-.77-10.73-6.38-15.84-17.11-15.84-18.9,0-30.39,11.24-30.39,30.39Z"></path>
+            <path fill="var(--sf-logo-ink, #ffffff)" d="M1435.03,947.11c-29.03,0-46.29,10.68-51.85,32.42-.63,2.48,1.2,4.91,3.76,4.91h26.49c1.44,0,2.83-.73,3.48-2.01,2.57-5.03,9.02-7.44,19.66-7.44,14.04,0,21.22,3.82,22,11.46,0,7.44-7.44,11.77-22,13.53-34.23,3.36-57.72,12.03-58.5,44.45,0,29.89,22.51,44.97,54.94,42.39,36.5-2.53,59.02-19.16,59.02-56.43v-45.95c-.77-25.04-19.67-37.33-57-37.33ZM1459.03,1028.85c0,19.16-11.46,30.41-30.36,30.41-10.74,0-16.37-5.11-17.14-15.85,0-9.96,6.92-16.32,20.45-18.9,7.84-1.59,15.21-3.68,21.84-6.11,2.53-.93,5.22.91,5.22,3.61v6.84Z"></path>
+            <path fill="var(--sf-logo-ink, #ffffff)" d="M1357.24,941.51h5.11c2.14,0,3.87-1.73,3.87-3.87v-20.79c0-1.99-1.5-3.66-3.48-3.87-4.06-.43-8.32-.59-12.88-.59-25.3,0-40.38,10.22-39.09,36.04v134.81c0,2.14,1.73,3.87,3.87,3.87h5.22c13.73,0,24.84-11.15,24.78-24.88l-.27-71.09c0-2.14,1.73-3.89,3.87-3.89h0c9.6,0,17.39-7.78,17.39-17.39v-5.77c0-2.14-1.73-3.87-3.87-3.87h-13.66c-2.13,0-3.86-1.72-3.87-3.86l-.02-4.69c0-.13,0-.27.02-.4.84-6.52,5.17-9.76,12.99-9.76Z"></path>
+            <path fill="var(--sf-logo-ink, #ffffff)" d="M1696.68,1064.43c0-2.14-1.73-3.87-3.87-3.87h-6.61c-6.66,0-9.96-3.1-9.96-8.73v-73.16l.73-.93h2.31c9.6,0,17.39-7.78,17.39-17.39v-5.78c0-2.14-1.73-3.87-3.87-3.87h-12.68c-2.14,0-3.87-1.73-3.87-3.87v-13.66c0-11.48-9.3-20.78-20.78-20.78h-9.32c-2.14,0-3.87,1.73-3.87,3.87v129.78c0,32.32,18.33,39.29,28.24,40.74h.31c3.56.52,5.94.26,5.94.26l-.05-.05c5.68.13,11.16.01,16.43-.37,2.01-.15,3.56-1.85,3.56-3.87v-18.32Z"></path>
+            <path fill="var(--sf-logo-ink, #ffffff)" d="M888.54,1064.43c0-2.14-1.73-3.87-3.87-3.87h-6.61c-6.66,0-9.96-3.1-9.96-8.73v-73.16l.73-.93h2.31c9.6,0,17.39-7.78,17.39-17.39v-5.78c0-2.14-1.73-3.87-3.87-3.87h-12.68c-2.14,0-3.87-1.73-3.87-3.87v-13.6c0-11.48-9.3-20.78-20.78-20.78h-9.32c-2.14,0-3.87,1.73-3.87,3.87v129.73c0,32.32,18.33,39.29,28.24,40.74h.31c3.56.52,5.94.26,5.94.26l-.05-.05c5.68.13,11.16.01,16.43-.37,2.01-.15,3.56-1.85,3.56-3.87v-18.32Z"></path>
+          </svg>
+          <span class="text-[10px] text-orange-400 font-semibold tracking-wider uppercase mt-1">
+            Cumilla Warehouse • Hybrid Project
+          </span>
+        </a>
+      </div>
+      
+      <nav class="hidden md:flex space-x-6 text-xs uppercase tracking-wider font-semibold text-slate-300">
+        <a href="#author" class="hover:text-orange-400 transition">প্রজেক্ট লিড</a>
+        <a href="#dimension-matrix" class="hover:text-orange-400 transition">পরিমাপ বিশ্লেষণ</a>
+        <a href="#cad-blueprint" class="hover:text-orange-400 transition">২D আর্কিটেকচারাল CAD</a>
+        <a href="#walkthrough-3d" class="hover:text-orange-400 transition">৩D ওয়াক-থ্রু মোড</a>
+        <a href="#trip-sla" class="hover:text-orange-400 transition">ট্রিপ এসএলএ</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <a href="https://asraful-portfolio-jet.vercel.app/" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/30 text-orange-400 hover:text-orange-300 text-xs font-semibold rounded-lg transition">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          <span>পোর্টফোলিও প্রোফাইল</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-14 px-6 max-w-7xl mx-auto text-center">
+    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-bold mb-6">
+      <i data-lucide="ruler" class="w-4 h-4"></i>
+      <span>প্রকৌশলগত নির্ভুল পরিমাপ: দৈর্ঘ্য ১৬৫ ফুট × প্রস্থ ৯০ ফুট</span>
+    </div>
+
+    <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-5xl mx-auto">
+      ১৬৫ ফুট সম্প্রসারিত <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400">হাইব্রিড লোড-আনলোড শেড</span> ও ডকিং মাস্টারপ্ল্যান
+    </h1>
+
+    <p class="mt-6 text-slate-400 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+      গেট থেকে ১৫' বাফার, ৪০' আনলোড পয়েন্ট (৫টি গাড়ি ও ২০' রাস্তা), ১০০' লোডিং শেড (১৬টি ৪৫° বে ও ৪টি কম্পিউটার স্টেশন), এবং ওয়্যারহাউজে প্রবেশে ১০' ক্লিয়ারেন্স বাফারের পূর্ণাঙ্গ রূপরেখা।
+    </p>
+  </section>
+
+  <!-- Author & Operations Team Collaboration Section -->
+  <section id="author" class="pb-16 px-6 max-w-7xl mx-auto">
+    <div class="bg-gradient-to-br from-[#0a101d] via-[#0d1527] to-[#070c17] border border-orange-500/25 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
+      
+      <!-- Top Section: Asraful Redoy (Executive Lead & Architect) -->
+      <div class="grid md:grid-cols-12 gap-8 items-center pb-10 border-b border-slate-800/80">
+        <!-- Photo Column -->
+        <div class="md:col-span-4 flex flex-col items-center text-center">
+          <div class="relative group">
+            <div class="w-36 h-36 md:w-40 md:h-40 rounded-2xl p-1 bg-gradient-to-tr from-orange-500 via-amber-400 to-emerald-400 shadow-xl">
+              <img 
+                src="./image/Md Asraful Alam.jpeg" 
+                alt="Md Asraful Alam Redoy" 
+                onerror="this.src='https://ui-avatars.com/api/?name=Md+Asraful+Alam+Redoy&background=f97316&color=fff&size=256'"
+                class="w-full h-full object-cover rounded-[14px] bg-slate-800"
+              />
+            </div>
+            <div class="absolute -bottom-2.5 inset-x-0 mx-auto w-max px-3 py-0.5 bg-slate-950 border border-slate-700 rounded-full text-[10px] font-bold text-emerald-400 flex items-center gap-1 shadow-lg">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              PROJECT LEAD & ARCHITECT
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Md Asraful Alam Redoy</h3>
+          <p class="text-xs text-orange-400 font-semibold">Executive - Warehouse Operation</p>
+          <p class="text-[11px] text-slate-400 mt-0.5">Cumilla Warehouse, Steadfast Courier Ltd.</p>
+
+          <a href="https://asraful-portfolio-jet.vercel.app/" target="_blank" rel="noopener noreferrer"
+             class="mt-4 inline-flex items-center space-x-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-slate-950 font-bold text-xs rounded-xl transition shadow-lg shadow-orange-500/20">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+            <span>অফিসিয়াল পোর্টফোলিও ভিজিট</span>
+          </a>
+        </div>
+
+        <!-- Scope & Leadership Message -->
+        <div class="md:col-span-8 border-t md:border-t-0 md:border-l border-slate-800 pt-6 md:pt-0 md:pl-10">
+          <div class="inline-flex items-center space-x-2 text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <span>অপারেশনাল রূপরেখা ও সার্বিক পরিকল্পনা</span>
+          </div>
+          <h4 class="text-2xl font-bold text-white mb-3">১৬৫' × ৯০' কাঠামোর কৌশলগত গুরুত্ব</h4>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            "গেটের মুখে ১৫ ফুট ফ্রি স্পেস রেখে ৪০ ফুট জোনে ৫টি গাড়ির আনলোড পয়েন্ট (যার মধ্যে চিটাগাং পার্সেলের ১২x১৪ বাফার অন্তর্ভুক্ত) এবং ১০০ ফুট শেডে এপিট-ওপিট মোট ১৬টি লোড পয়েন্ট নিশ্চিত করা হয়েছে। আমার অপারেশনাল টিমের মাঠপর্যায়ের অভিজ্ঞতা ও বাস্তব তথ্যের সমন্বয়ে হাবের গতি দ্বিগুণ (২X) করার এই চূড়ান্ত প্রকৌশল নকশা প্রণয়ন করা হয়েছে।"
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <div class="p-3 bg-slate-950/80 border border-slate-800 rounded-xl">
+              <span class="text-slate-500 block text-[11px]">দৈর্ঘ্য (গেট-ওয়্যারহাউজ)</span>
+              <span class="font-bold text-orange-400 text-sm">১৬৫ ফুট</span>
+            </div>
+            <div class="p-3 bg-slate-950/80 border border-slate-800 rounded-xl">
+              <span class="text-slate-500 block text-[11px]">মোট প্রস্থ</span>
+              <span class="font-bold text-orange-400 text-sm">৯০ ফুট</span>
+            </div>
+            <div class="p-3 bg-slate-950/80 border border-slate-800 rounded-xl">
+              <span class="text-slate-500 block text-[11px]">লোড পয়েন্ট (শেড)</span>
+              <span class="font-bold text-emerald-400 text-sm">১৬টি বে (৮+৮)</span>
+            </div>
+            <div class="p-3 bg-slate-950/80 border border-slate-800 rounded-xl">
+              <span class="text-slate-500 block text-[11px]">আনলোড পয়েন্ট</span>
+              <span class="font-bold text-red-400 text-sm">৫টি বে</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Section: Operational Support & Ground Collaboration Team (বড় ও স্পষ্ট সংস্করণ) -->
+      <div class="mt-10 pt-8 border-t border-slate-800/80">
+        <div class="flex items-center space-x-2 text-xs md:text-sm font-bold text-cyan-400 uppercase tracking-wider mb-6">
+          <i data-lucide="users" class="w-4 h-4 text-cyan-400"></i>
+          <span>মাঠপর্যায়ের অপারেশনাল সহায়তা ও পরামর্শে (Ground Support & Operations Team)</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Warehouse Incharge Card (দ্বিগুণ বড় ছবি ও ফন্ট) -->
+          <div class="p-6 bg-slate-950/80 border border-slate-800 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-5 hover:border-cyan-500/40 transition shadow-xl">
+            <!-- Large Photo Frame (w-32 h-32 = 128px) -->
+            <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-gradient-to-tr from-cyan-500 via-blue-500 to-indigo-500 p-1 flex-shrink-0 shadow-lg">
+              <img 
+                src="./image/Khalekuzzaman.jpg" 
+                alt="Warehouse Incharge" 
+                onerror="this.src='https://ui-avatars.com/api/?name=Warehouse+Incharge&background=0284c7&color=fff&size=256&font-size=0.38'" 
+                class="w-full h-full object-cover rounded-[14px] bg-slate-900"
+              />
+            </div>
+            <div class="text-center sm:text-left flex-1">
+              <span class="inline-block text-[11px] px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-lg font-bold uppercase tracking-wide">
+                গ্রাউন্ড ইনসাইট ও ফিল্ড সাপোর্ট
+              </span>
+              <h5 class="text-xl font-bold text-white mt-2">খালেকুজ্জামান</h5>
+              <p class="text-sm text-cyan-400 font-semibold mt-0.5">Incharge</p>
+              <p class="text-xs text-slate-400 mt-1">Cumilla Warehouse, Steadfast Courier Ltd.</p>
+              <p class="text-[11px] text-slate-500 mt-3 pt-2.5 border-t border-slate-800/80 leading-relaxed">
+                ফ্লোরের যানবাহন ডকিং ও রিয়েল-টাইম পার্সেল হ্যান্ডলিংয়ের তথ্য দিয়ে পরিকল্পনা প্রণয়নে সহায়তা করেছেন।
+              </p>
+            </div>
+          </div>
+
+          <!-- Assistant Warehouse Incharge Card (দ্বিগুণ বড় ছবি ও ফন্ট) -->
+          <div class="p-6 bg-slate-950/80 border border-slate-800 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-5 hover:border-indigo-500/40 transition shadow-xl">
+            <!-- Large Photo Frame (w-32 h-32 = 128px) -->
+            <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-gradient-to-tr from-indigo-500 via-sky-400 to-teal-400 p-1 flex-shrink-0 shadow-lg">
+              <img 
+                src="./image/MD. ABDUR RAHIM.jpg" 
+                alt="Assistant Warehouse Incharge" 
+                onerror="this.src='https://ui-avatars.com/api/?name=Assistant+Incharge&background=6366f1&color=fff&size=256&font-size=0.38'" 
+                class="w-full h-full object-cover rounded-[14px] bg-slate-900"
+              />
+            </div>
+            <div class="text-center sm:text-left flex-1">
+              <span class="inline-block text-[11px] px-3 py-1 bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 rounded-lg font-bold uppercase tracking-wide">
+                ফ্লোর কো-অর্ডিনেশন ও ডাটা সহায়তা
+              </span>
+              <h5 class="text-xl font-bold text-white mt-2">মোঃ আব্দুর রহিম</h5>
+              <p class="text-sm text-indigo-400 font-semibold mt-0.5">Assistant Incharge</p>
+              <p class="text-xs text-slate-400 mt-1">Cumilla Warehouse, Steadfast Courier Ltd.</p>
+              <p class="text-[11px] text-slate-500 mt-3 pt-2.5 border-t border-slate-800/80 leading-relaxed">
+                পিক-আওয়ারে ফ্লিট মুভমেন্ট এবং সর্টিং প্ল্যাটফর্মের সমন্বয় সংক্রান্ত তথ্যে সার্বিক সহযোগিতা করেছেন।
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- CRITICAL PROBLEM STATEMENT & BOTTLENECK ANALYSIS SECTION -->
+  <section id="bottlenecks" class="py-16 px-6 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-xs font-bold mb-3">
+        <i data-lucide="alert-triangle" class="w-4 h-4 text-red-400"></i>
+        <span>রুট কজ ও অপারেশনাল সংকট বিশ্লেষণ</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        কেন এই মুহূর্তে <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-amber-300">১৬৫ ফুট হাইব্রিড শেড</span> অপরিহার্য?
+      </h2>
+      <p class="text-slate-400 text-xs md:text-sm mt-3">
+        কুমিল্লা হাবের ফ্লোর স্পেস সংকট, ডক ব্লকেজ এবং ইনসাইড-আউটসাইড ট্রিপের এসএলএ ব্যাহত হওয়ার বাস্তব কারণসমূহ
+      </p>
+    </div>
+
+    <!-- 3 Key Problem Cards Grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+      
+      <!-- Problem 1: CTG Partner Vehicle & Floor Space Crisis -->
+      <div class="p-6 bg-slate-950/80 border border-red-500/30 rounded-2xl relative shadow-xl hover:border-red-500/60 transition group">
+        <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 flex items-center justify-center mb-5">
+          <i data-lucide="truck" class="w-6 h-6"></i>
+        </div>
+        <span class="text-[11px] font-bold text-red-400 uppercase tracking-wide block mb-1">সংকট ০১ • ডক ব্লকেজ</span>
+        <h3 class="text-lg font-bold text-white mb-3">চিটাগাং পার্সেল ও ১২x১৪ গাড়ির আনলোড পয়েন্টের জায়গা দখল</h3>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+          চলতি মাস থেকে পার্টনার গাড়িতে চিটাগাং এর জন্য পার্সেল আসছে। আনলোড করার পর ফ্লোরে রাখার জায়গা না থাকায় একটি <span class="text-amber-400 font-semibold">১২x১৪ সাইজের গাড়ি আনলোড বে-তে সার্বক্ষণিক রেখে দিতে হয়</span>। ঢাকা বা অন্যান্য জায়গা থেকে আসা সব গাড়ির পার্সেল লোড হওয়া শেষ না হওয়া পর্যন্ত এটি সরানো যায় না।
+        </p>
+        <div class="p-3 bg-red-950/30 border border-red-800/40 rounded-xl text-[11px] text-red-300 flex items-start gap-2">
+          <i data-lucide="x-circle" class="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5"></i>
+          <span>৪টি আনলোড পয়েন্টের ১টি পিক পিক-আওয়ারে ব্লক থাকায় কার্যকর পয়েন্ট থাকে মাত্র ৩টি! ফলে বাকি সব গাড়ির আনলোডে ভয়াবহ জ্যাম তৈরি হয়।</span>
+        </div>
+      </div>
+
+      <!-- Problem 2: SLA & Hub Trip Dispatch Delays -->
+      <div class="p-6 bg-slate-950/80 border border-amber-500/30 rounded-2xl relative shadow-xl hover:border-amber-500/60 transition group">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-5">
+          <i data-lucide="clock-alert" class="w-6 h-6"></i>
+        </div>
+        <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wide block mb-1">সংকট ০২ • ডেলিভারি বিলম্ব</span>
+        <h3 class="text-lg font-bold text-white mb-3">হাব ডিসপ্যাচ SLA ফেইলিয়র ঝুঁকি</h3>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+          আনলোড পয়েন্ট ৩টিতে নেমে আসায় আনলোডিং অত্যন্ত ধীরগতির হচ্ছে। এর ফলে নির্ধারিত সময়ে ইনসাইড ও আউটসাইড হাবে গাড়ি পাঠানো সম্ভব হয়ে উঠে না:
+        </p>
+        <div class="space-y-2 text-[11px]">
+          <div class="p-2.5 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-between">
+            <span class="text-slate-300">১ম ট্রিপ (সকাল ০৮:৩০ – ০৯:০০)</span>
+            <span class="text-red-400 font-bold">দেরি হচ্ছে</span>
+          </div>
+          <div class="p-2.5 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-between">
+            <span class="text-slate-300">২য় ট্রিপ (দুপুর ১২:০০ – ০১:০০)</span>
+            <span class="text-red-400 font-bold">দেরি হচ্ছে</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution Overview: 2X Speed & Hybrid Dual-Use -->
+      <div class="p-6 bg-slate-950/80 border border-emerald-500/30 rounded-2xl relative shadow-xl hover:border-emerald-500/60 transition group">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-5">
+          <i data-lucide="zap" class="w-6 h-6"></i>
+        </div>
+        <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wide block mb-1">সমাধান • ২X স্পিড</span>
+        <h3 class="text-lg font-bold text-white mb-3">১৬৫' হাইব্রিড শেডের সুফল</h3>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+          বর্তমানে জায়গাটি শুধু খোলা গাড়ি পার্কিং হিসেবে ব্যবহৃত হচ্ছে। এই ১৬৫' হাইব্রিড শেড বাস্তবায়িত হলে:
+        </p>
+        <ul class="text-[11px] text-slate-300 space-y-2 border-t border-slate-800/80 pt-3">
+          <li class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+            <span><strong>১৬টি লোড বে (৪৫°):</strong> কোনো রিভার্স ছাড়াই গাড়ি সোজা বের হতে পারবে।</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+            <span><strong>৫টি ড্রাইভ-ইন আনলোড ডক:</strong> ১২x১৪ চিটাগাং গাড়ির জন্য একটি স্থায়ী বাফার থাকবে।</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+            <span><strong>অফ-পিক হাইব্রিড পার্কিং:</strong> অপারেশন না থাকলে রাতে পুরোটা সুশৃঙ্খল পার্কিং।</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+  <!-- Dimension Matrix Section -->
+  <section id="dimension-matrix" class="py-12 px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="text-xs font-bold uppercase tracking-wider text-orange-400">কাঠামোগত পরিমাপ বিবরণী</span>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">১৬৫ ফুট দৈর্ঘ্য ও ৯০ ফুট প্রস্থের নিখুঁত বিভাজন</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div class="p-5 bg-slate-900/80 border border-slate-800 rounded-xl">
+        <span class="text-xs text-orange-400 font-bold block">সেকশন ১</span>
+        <p class="text-lg font-bold text-white mt-1">১৫ ফুট বাফার</p>
+        <p class="text-xs text-slate-400 mt-2">মেইন গেট থেকে ওয়্যারহাউজের অভ্যন্তরীণ অংশে প্রবেশের টার্নিং ও ক্লিয়ারেন্স স্পেস।</p>
+      </div>
+
+      <div class="p-5 bg-slate-900/80 border border-slate-800 rounded-xl">
+        <span class="text-xs text-red-400 font-bold block">সেকশন ২</span>
+        <p class="text-lg font-bold text-white mt-1">৪০ ফুট আনলোড (৭০'w)</p>
+        <p class="text-xs text-slate-400 mt-2">৫টি আনলোড বে (প্রতিটি ১২' সাইজ পর্যন্ত)। সাথে ১২x১৪ চিটাগাং পার্সেল বাফার ট্রাক।</p>
+      </div>
+
+      <div class="p-5 bg-slate-900/80 border border-slate-800 rounded-xl">
+        <span class="text-xs text-emerald-400 font-bold block">সেকশন ৩</span>
+        <p class="text-lg font-bold text-white mt-1">২০ ফুট রাস্তা</p>
+        <p class="text-xs text-slate-400 mt-2">৯০' প্রস্থের মধ্যে আনলোডের মাঝ বরাবর ২০ ফুট সোজা ওয়্যারহাউজে গাড়ি যাতায়াতের প্রধান ড্রাইভওয়ে।</p>
+      </div>
+
+      <div class="p-5 bg-slate-900/80 border border-slate-800 rounded-xl">
+        <span class="text-xs text-amber-400 font-bold block">সেকশন ৪</span>
+        <p class="text-lg font-bold text-white mt-1">১০০ ফুট লোড শেড</p>
+        <p class="text-xs text-slate-400 mt-2">৮+৮ = ১৬টি ৪৫° গাড়ি (৯৬') + ঠিক মাঝখানে ২টি ৪ ফুটের সেন্ট্রাল কম্পিউটার সেটআপ।</p>
+      </div>
+
+      <div class="p-5 bg-slate-900/80 border border-slate-800 rounded-xl">
+        <span class="text-xs text-indigo-400 font-bold block">সেকশন ৫</span>
+        <p class="text-lg font-bold text-white mt-1">১০ ফুট ট্রানজিশন</p>
+        <p class="text-xs text-slate-400 mt-2">১০০' শেডের পর থেকে ওয়্যারহাউজ সেকশন শুরুর মধ্যবর্তী খালি জায়গা।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete 2D Architectural CAD Blueprint (Perfected per Final Touch) -->
+  <section id="cad-blueprint" class="py-14 px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">প্রকৌশলগত সিভিল নকশা</span>
+      <h2 class="text-3xl font-bold text-white mt-1">ওয়্যারহাউজ ২D মাস্টার CAD ব্লুপ্রিন্ট</h2>
+    </div>
+
+    <div class="bg-[#070b14] border border-slate-800 rounded-2xl p-6 shadow-2xl overflow-x-auto">
+      <svg viewBox="0 0 1560 840" class="w-full min-w-[1150px] h-auto select-none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="gridCAD" width="25" height="25" patternUnits="userSpaceOnUse">
+            <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#162238" stroke-width="0.7"/>
+          </pattern>
+          <marker id="arrowDim" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#38bdf8" />
+          </marker>
+        </defs>
+
+        <!-- Background -->
+        <rect width="1560" height="840" fill="#060911" />
+        <rect width="1560" height="840" fill="url(#gridCAD)" />
+
+<!-- MASTER DIMENSION CALLOUT (TOP: 165 FT TOTAL - উপরে উঠানো সংস্করণ) -->
+        <g class="cad-dimension">
+          <!-- Total 165' Dimension Line (উপরে Y = 14 এ স্থানান্তরিত) -->
+          <line x1="120" y1="14" x2="840" y2="14" stroke="#38bdf8" stroke-width="2" marker-start="url(#arrowDim)" marker-end="url(#arrowDim)" />
+          <rect x="360" y="2" width="240" height="24" rx="4" fill="#0b172a" stroke="#38bdf8" stroke-width="1.2"/>
+          <text x="480" y="18" fill="#38bdf8" text-anchor="middle" font-weight="bold">মোট দৈর্ঘ্য: ১৬৫ ফুট (গেট ➜ ওয়্যারহাউজ)</text>
+
+          <!-- 15' Buffer Dimension (Y = 34 এ স্থানান্তরিত) -->
+          <line x1="120" y1="34" x2="190" y2="34" stroke="#94a3b8" stroke-width="1.5" marker-start="url(#arrowDim)" marker-end="url(#arrowDim)" />
+          <rect x="135" y="22" width="40" height="15" fill="#060911" rx="2"/>
+          <text x="155" y="33" fill="#cbd5e1" text-anchor="middle">১৫' খালি</text>
+
+          <!-- 40' Unload Dimension (Y = 34 এ স্থানান্তরিত) -->
+          <line x1="190" y1="34" x2="350" y2="34" stroke="#ef4444" stroke-width="1.5" marker-start="url(#arrowDim)" marker-end="url(#arrowDim)" />
+          <rect x="225" y="22" width="90" height="15" fill="#060911" rx="2"/>
+          <text x="270" y="33" fill="#f87171" text-anchor="middle">৪০' আনলোড জোন</text>
+
+          <!-- 100' Load Shed Dimension (Y = 34 এ স্থানান্তরিত) -->
+          <line x1="350" y1="34" x2="770" y2="34" stroke="#f59e0b" stroke-width="1.5" marker-start="url(#arrowDim)" marker-end="url(#arrowDim)" />
+          <rect x="450" y="22" width="220" height="15" fill="#060911" rx="2"/>
+          <text x="560" y="33" fill="#fbbf24" text-anchor="middle">১০০' লোড শেড (১৬টি বে + ২টি কম্পিউটার)</text>
+
+          <!-- 10' Buffer Dimension (Y = 34 এ স্থানান্তরিত) -->
+          <line x1="770" y1="34" x2="840" y2="34" stroke="#94a3b8" stroke-width="1.5" marker-start="url(#arrowDim)" marker-end="url(#arrowDim)" />
+          <rect x="785" y="22" width="40" height="15" fill="#060911" rx="2"/>
+          <text x="805" y="33" fill="#cbd5e1" text-anchor="middle">১০' বাফার</text>
+        </g>
+
+        <!-- MASTER DIMENSION CALLOUT (LEFT: 90 FT WIDTH) -->
+        <g class="cad-dimension">
+          <line x1="45" y1="120" x2="45" y2="520" stroke="#38bdf8" stroke-width="2" marker-start="url(#arrowDim)" marker-end="url(#arrowDim)" />
+          <text x="35" y="320" fill="#38bdf8" text-anchor="middle" transform="rotate(-90 35,320)">মোট প্রস্থ: ৯০ ফুট</text>
+
+          <line x1="65" y1="120" x2="65" y2="280" stroke="#f59e0b" stroke-width="1.5" marker-start="url(#arrowDim)" marker-end="url(#arrowDim)" />
+          <text x="57" y="200" fill="#fbbf24" text-anchor="middle" transform="rotate(-90 57,200)">উত্তর বে (৩৫')</text>
+
+          <line x1="65" y1="280" x2="65" y2="360" stroke="#10b981" stroke-width="1.5" marker-start="url(#arrowDim)" marker-end="url(#arrowDim)" />
+          <text x="57" y="320" fill="#34d399" text-anchor="middle" transform="rotate(-90 57,320)">২০' রাস্তা</text>
+
+          <line x1="65" y1="360" x2="65" y2="520" stroke="#f59e0b" stroke-width="1.5" marker-start="url(#arrowDim)" marker-end="url(#arrowDim)" />
+          <text x="57" y="440" fill="#fbbf24" text-anchor="middle" transform="rotate(-90 57,440)">দক্ষিণ বে (৩৫')</text>
+        </g>
+
+        <!-- TOP UTILITY ROOMS (FLUSH AGAINST WAREHOUSE WALL X = 840) -->
+        <g stroke="#475569" stroke-width="0" fill="#1e293b" class="cad-dimension">
+          <!-- Toilet 1 (Left-most) -->
+          <rect x="420" y="45" width="85" height="55" rx="3"/>
+          <text x="462" y="78" fill="#cbd5e1" text-anchor="middle">Toilet</text>
+
+          <!-- 2 WATER TANK (PURPLE HIGHLIGHT) -->
+          <rect x="510" y="45" width="95" height="55" rx="4" stroke="#a855f7" stroke-width="3" fill="#2e1065"/>
+          <text x="557" y="72" fill="#e9d5ff" font-weight="bold" text-anchor="middle">2 Water</text>
+          <text x="557" y="88" fill="#c084fc" font-size="10" text-anchor="middle">Tank</text>
+
+          <!-- Toilet 2 -->
+          <rect x="610" y="45" width="55" height="55" rx="3"/>
+          <text x="637" y="78" fill="#cbd5e1" text-anchor="middle">Toilet</text>
+
+          <!-- Wash room -->
+          <rect x="670" y="45" width="75" height="55" rx="3"/>
+          <text x="707" y="72" fill="#cbd5e1" text-anchor="middle">Wash</text>
+          <text x="707" y="86" fill="#94a3b8" font-size="9.5" text-anchor="middle">room</text>
+
+          <!-- Generator Room (Directly touches warehouse wall X = 840) -->
+          <rect x="750" y="45" width="90" height="55" rx="3" stroke="#64748b" stroke-width="2"/>
+          <text x="795" y="72" fill="#cbd5e1" font-weight="bold" text-anchor="middle">Generator</text>
+          <text x="795" y="86" fill="#94a3b8" font-size="9.5" text-anchor="middle">Room</text>
+        </g>
+
+        <!-- LEFT FACILITIES (FLEET STORE & CAR CHECKER SHIFTED UP PER USER MARKUP) -->
+        <g stroke="#334155" stroke-width="0" fill="#0f172a" class="cad-dimension">
+          <!-- Fleet Store room (Shifted to Top-Left corner at Y = 45) -->
+          <rect x="90" y="45" width="115" height="48" rx="3" fill="#1e293b" stroke="#f97316" stroke-width="1.8"/>
+          <text x="147" y="74" fill="#fbd5aa" font-weight="bold" text-anchor="middle">Fleet Store room</text>
+
+          <!-- Car Checker Room (Shifted to Y = 98 directly below Fleet Store) -->
+          <rect x="90" y="98" width="95" height="42" rx="3" fill="#0f172a"/>
+          <text x="137" y="124" fill="#cbd5e1" font-weight="bold" text-anchor="middle">Car Checker Room</text>
+
+          <!-- Employe Entry Checker room -->
+          <rect x="90" y="435" width="85" height="40" rx="3"/>
+          <text x="132" y="454" fill="#cbd5e1" text-anchor="middle">Employe Entry</text>
+          <text x="132" y="468" fill="#94a3b8" font-size="9" text-anchor="middle">Checker room</text>
+
+          <!-- Fleet Workshop (Bottom Left) -->
+          <rect x="90" y="482" width="120" height="48" rx="3" fill="#1e293b"/>
+          <text x="150" y="512" fill="#cbd5e1" font-weight="bold" text-anchor="middle">Fleet Workshop</text>
+        </g>
+
+        <!-- ENTRY GATE -->
+        <rect x="100" y="270" width="20" height="100" rx="3" fill="#0284c7" stroke="#38bdf8" stroke-width="2"/>
+        <text x="110" y="320" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle" transform="rotate(-90 110,320)">ENTRY GATE</text>
+
+        <!-- SECTION 1: 15' BUFFER ZONE -->
+        <rect x="120" y="120" width="70" height="400" fill="#38bdf8" fill-opacity="0.03" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,4"/>
+        <text x="155" y="325" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle" transform="rotate(-90 155,325)">১৫' বাফার স্পেস</text>
+
+        <!-- ========================================================== -->
+        <!-- CENTRAL 20' ROADWAY (X = 120 to 840, Y = 280 to 360) -->
+        <!-- ========================================================== -->
+        <!-- Flat Road (X = 120 to 350) -->
+        <rect x="120" y="280" width="230" height="80" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+        <line x1="125" y1="320" x2="345" y2="320" stroke="#facc15" stroke-width="2.5" stroke-dasharray="8,6"/>
+        <text x="235" y="315" fill="#94a3b8" font-size="9" text-anchor="middle">২০' সেন্ট্রাল রোড (গ্রাউন্ড লেভেল)</text>
+
+        <!-- 3' UP-RAMP: X = 350 to 410 -->
+        <rect x="350" y="280" width="60" height="80" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+        <text x="380" y="315" fill="#38bdf8" font-size="8" font-weight="bold" text-anchor="middle">৩' আপ-র‍্যাম্প</text>
+        <text x="380" y="332" fill="#7dd3fc" font-size="8" text-anchor="middle">১৫' ঢালু (০ ➜ ৩')</text>
+
+        <!-- 3' ELEVATED PLATFORM: X = 410 to 710 -->
+        <rect x="410" y="280" width="300" height="80" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+        <text x="560" y="315" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">৩ ফুট উচু সেন্ট্রাল ডক-প্ল্যাটফর্ম</text>
+        <text x="560" y="332" fill="#fde68a" font-size="8.5" text-anchor="middle">ট্রলিবক্স আনা-নেওয়া ও গাড়ি চলাচলের পথ</text>
+
+        <!-- Hazard Stripes on Platform Edges -->
+        <line x1="410" y1="282" x2="710" y2="282" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6,4"/>
+        <line x1="410" y1="358" x2="710" y2="358" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6,4"/>
+
+        <!-- Blue Trolley Boxes on Platform -->
+        <rect x="450" y="295" width="12" height="12" rx="2" fill="#38bdf8" stroke="#0284c7"/>
+        <rect x="520" y="335" width="12" height="12" rx="2" fill="#38bdf8" stroke="#0284c7"/>
+        <rect x="590" y="295" width="12" height="12" rx="2" fill="#38bdf8" stroke="#0284c7"/>
+        <rect x="660" y="335" width="12" height="12" rx="2" fill="#38bdf8" stroke="#0284c7"/>
+
+        <!-- 3' DOWN-RAMP: X = 710 to 770 -->
+        <rect x="710" y="280" width="60" height="80" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+        <text x="740" y="315" fill="#38bdf8" font-size="8" font-weight="bold" text-anchor="middle">৩' ডাউন-র‍্যাম্প</text>
+        <text x="740" y="332" fill="#7dd3fc" font-size="8" text-anchor="middle">১৫' ঢালু (৩ ➜ ০')</text>
+
+        <!-- ========================================================== -->
+        <!-- SECTION 2: 40' UNLOAD POINT (NO ARROWS, TAILGATES FACE EAST) -->
+        <!-- ========================================================== -->
+        <!-- North Unload (3 Trucks) -->
+        <rect x="190" y="120" width="160" height="155" rx="6" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <text x="270" y="138" fill="#f87171" font-size="10" font-weight="bold" text-anchor="middle">আনলোড পয়েন্ট (উত্তর ৩ বে)</text>
+
+        <!-- Truck 1: Cabin on West (Left), Tailgate on East (Right) with red taillights -->
+        <g transform="translate(205, 150)">
+          <rect x="0" y="2" width="18" height="18" rx="2" fill="#fed7aa"/> <!-- Cabin Front -->
+          <rect x="2" y="4" width="4" height="14" fill="#0284c7"/> <!-- Windshield -->
+          <rect x="18" y="0" width="68" height="22" rx="2" fill="#ea580c"/> <!-- Cargo Box -->
+          <rect x="85" y="0" width="4" height="22" fill="#0f172a"/> <!-- Tailgate (পাছা) -->
+          <circle cx="87" cy="4" r="1.5" fill="#ef4444"/>
+          <circle cx="87" cy="18" r="1.5" fill="#ef4444"/>
+          <text x="50" y="15" font-size="9" font-weight="bold" fill="#fff" text-anchor="middle">বে ১ (১২'w)</text>
+        </g>
+        <!-- Truck 2 -->
+        <g transform="translate(205, 185)">
+          <rect x="0" y="2" width="18" height="18" rx="2" fill="#fed7aa"/>
+          <rect x="2" y="4" width="4" height="14" fill="#0284c7"/>
+          <rect x="18" y="0" width="68" height="22" rx="2" fill="#ea580c"/>
+          <rect x="85" y="0" width="4" height="22" fill="#0f172a"/>
+          <circle cx="87" cy="4" r="1.5" fill="#ef4444"/>
+          <circle cx="87" cy="18" r="1.5" fill="#ef4444"/>
+          <text x="50" y="15" font-size="9" font-weight="bold" fill="#fff" text-anchor="middle">বে ২ (১২'w)</text>
+        </g>
+        <!-- Truck 3 -->
+        <g transform="translate(205, 220)">
+          <rect x="0" y="2" width="18" height="18" rx="2" fill="#fed7aa"/>
+          <rect x="2" y="4" width="4" height="14" fill="#0284c7"/>
+          <rect x="18" y="0" width="68" height="22" rx="2" fill="#ea580c"/>
+          <rect x="85" y="0" width="4" height="22" fill="#0f172a"/>
+          <circle cx="87" cy="4" r="1.5" fill="#ef4444"/>
+          <circle cx="87" cy="18" r="1.5" fill="#ef4444"/>
+          <text x="50" y="15" font-size="9" font-weight="bold" fill="#fff" text-anchor="middle">বে ৩ (১২'w)</text>
+        </g>
+
+        <!-- South Unload (2 Trucks) -->
+        <rect x="190" y="365" width="160" height="155" rx="6" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <text x="270" y="385" fill="#f87171" font-size="10" font-weight="bold" text-anchor="middle">আনলোড পয়েন্ট (দক্ষিণ ২ বে)</text>
+
+        <!-- Truck 4 -->
+        <g transform="translate(205, 400)">
+          <rect x="0" y="2" width="18" height="18" rx="2" fill="#fed7aa"/>
+          <rect x="2" y="4" width="4" height="14" fill="#0284c7"/>
+          <rect x="18" y="0" width="68" height="22" rx="2" fill="#ea580c"/>
+          <rect x="85" y="0" width="4" height="22" fill="#0f172a"/>
+          <circle cx="87" cy="4" r="1.5" fill="#ef4444"/>
+          <circle cx="87" cy="18" r="1.5" fill="#ef4444"/>
+          <text x="50" y="15" font-size="9" font-weight="bold" fill="#fff" text-anchor="middle">বে ৪ (১২'w)</text>
+        </g>
+        <!-- Truck 5 (12x14 CTG Dedicated Buffer in Red) -->
+        <g transform="translate(205, 435)">
+          <rect x="0" y="2" width="18" height="20" rx="2" fill="#fecaca"/>
+          <rect x="2" y="5" width="4" height="14" fill="#0284c7"/>
+          <rect x="18" y="0" width="73" height="24" rx="2" fill="#dc2626"/>
+          <rect x="90" y="0" width="4" height="24" fill="#450a0a"/>
+          <circle cx="92" cy="5" r="1.5" fill="#fee2e2"/>
+          <circle cx="92" cy="19" r="1.5" fill="#fee2e2"/>
+          <text x="53" y="16" font-size="7" font-weight="bold" fill="#fff" text-anchor="middle">১২x১৪ CTG পার্টনার বে</text>
+        </g>
+
+        <!-- ========================================================== -->
+        <!-- SECTION 4: 100' LOAD POINT SHED (16 BAYS - NO ARROWS, TAILGATES TOUCH PLATFORM) -->
+        <!-- ========================================================== -->
+        <rect x="350" y="105" width="420" height="415" rx="8" fill="#0284c7" fill-opacity="0.05" stroke="#38bdf8" stroke-width="2"/>
+        <text x="560" y="122" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">১০০ ফিট নতুন শেড: ১৬টি গাড়ি (৮+৮ এপিট-ওপিট ৪৫° লোডিং বে)</text>
+
+        <!-- NORTH ROW: 8 TRUCKS AT 45° -->
+        <!-- Front/Cabin is at Top-Left (outer), Tailgate/পাছা is at Bottom-Right (touching 3' platform) -->
+        <!-- Truck 1 -->
+        <g transform="translate(390, 205) rotate(45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/> <!-- Cabin -->
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/> <!-- Cargo -->
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/> <!-- Tailgate (পাছা) -->
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ১</text>
+        </g>
+        <!-- Truck 2 -->
+        <g transform="translate(425, 205) rotate(45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ২</text>
+        </g>
+        <!-- Truck 3 -->
+        <g transform="translate(460, 205) rotate(45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ৩</text>
+        </g>
+        <!-- Truck 4 -->
+        <g transform="translate(495, 205) rotate(45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ৪</text>
+        </g>
+
+        <!-- 4' COMPUTER STATION 1 (NORTH) -->
+        <g id="cad-pc-1" transform="translate(535, 240)">
+          <rect x="0" y="0" width="45" height="38" rx="4" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="23" y="14" fill="#fff" font-size="7" font-weight="bold" text-anchor="middle">কম্পিউটার</text>
+          <text x="23" y="25" fill="#7dd3fc" font-size="7" text-anchor="middle">সেটআপ ১</text>
+          <circle cx="23" cy="33" r="2" fill="#34d399"/>
+        </g>
+
+        <!-- Truck 5 -->
+        <g transform="translate(580, 205) rotate(45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ৫</text>
+        </g>
+        <!-- Truck 6 -->
+        <g transform="translate(615, 205) rotate(45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ৬</text>
+        </g>
+        <!-- Truck 7 -->
+        <g transform="translate(650, 205) rotate(45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ৭</text>
+        </g>
+        <!-- Truck 8 -->
+        <g transform="translate(685, 205) rotate(45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ৮</text>
+        </g>
+
+        <!-- SOUTH ROW: 8 TRUCKS AT 45° -->
+        <!-- Front/Cabin is at Bottom-Left (outer), Tailgate/পাছা is at Top-Right (touching 3' platform) -->
+        <!-- Truck 9 -->
+        <g transform="translate(390, 435) rotate(-45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ৯</text>
+        </g>
+        <!-- Truck 10 -->
+        <g transform="translate(425, 435) rotate(-45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ১০</text>
+        </g>
+        <!-- Truck 11 -->
+        <g transform="translate(460, 435) rotate(-45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ১১</text>
+        </g>
+        <!-- Truck 12 -->
+        <g transform="translate(495, 435) rotate(-45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ১২</text>
+        </g>
+
+        <!-- 4' COMPUTER STATION 2 (SOUTH) -->
+        <g id="cad-pc-2" transform="translate(535, 362)">
+          <rect x="0" y="0" width="45" height="38" rx="4" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="23" y="14" fill="#fff" font-size="7" font-weight="bold" text-anchor="middle">কম্পিউটার</text>
+          <text x="23" y="25" fill="#7dd3fc" font-size="7" text-anchor="middle">সেটআপ ২</text>
+          <circle cx="23" cy="33" r="2" fill="#34d399"/>
+        </g>
+
+        <!-- Truck 13 -->
+        <g transform="translate(580, 435) rotate(-45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ১৩</text>
+        </g>
+        <!-- Truck 14 -->
+        <g transform="translate(615, 435) rotate(-45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ১৪</text>
+        </g>
+        <!-- Truck 15 -->
+        <g transform="translate(650, 435) rotate(-45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ১৫</text>
+        </g>
+        <!-- Truck 16 -->
+        <g transform="translate(685, 435) rotate(-45)">
+          <rect x="0" y="2" width="12" height="12" rx="2" fill="#fef3c7"/>
+          <rect x="2" y="3" width="3" height="10" fill="#0284c7"/>
+          <rect x="12" y="0" width="38" height="16" rx="2" fill="#f59e0b"/>
+          <rect x="49" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="50" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="50" cy="13" r="1.2" fill="#ef4444"/>
+          <text x="30" y="11" font-size="8" fill="#78350f" font-weight="bold">বে ১৬</text>
+        </g>
+
+        <!-- SECTION 5: 10' BUFFER BEFORE WAREHOUSE -->
+        <rect x="770" y="105" width="70" height="415" fill="#f97316" fill-opacity="0.04" stroke="#f97316" stroke-width="1.2" stroke-dasharray="4,4"/>
+        <text x="805" y="325" fill="#fb923c" font-size="9" font-weight="bold" text-anchor="middle" transform="rotate(-90 805,325)">১০' ক্লিয়ারেন্স বাফার</text>
+
+        <!-- ========================================================== -->
+        <!-- WAREHOUSE ENTRANCE & INCHARGE ROOM -->
+        <!-- ========================================================== -->
+        <rect x="840" y="45" width="12" height="175" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+        <rect x="840" y="420" width="12" height="60" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+
+        <!-- 56-Foot Wide Open Portal -->
+        <line x1="840" y1="220" x2="840" y2="420" stroke="#10b981" stroke-width="2.5" stroke-dasharray="6,4"/>
+        <text x="855" y="320" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle" transform="rotate(90 855,320)">৫৬' উন্মুক্ত ওয়্যারহাউজ প্রবেশদ্বার ➜</text>
+
+        <!-- INCHARGE ROOM (DIRECTLY LEVEL/ALIGNED WITH FLEET WORKSHOP AT Y = 482) -->
+        <rect x="685" y="482" width="170" height="48" rx="4" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+        <text x="770" y="503" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Incharge room Fleet 1st Floor</text>
+        <text x="770" y="519" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Incharge room Warehouse 2nd Floor</text>
+
+        <!-- ========================================================== -->
+        <!-- MAIN WAREHOUSE INTERIOR FACILITIES (RIGHT SIDE) -->
+        <!-- ========================================================== -->
+        <path d="M 840,45 L 1520,45 L 1520,780 L 880,780 L 880,530 L 840,530" fill="none" stroke="#334155" stroke-width="3"/>
+
+        <!-- Automation Maintenance & Sorting Platform Building -->
+        <rect x="910" y="230" width="105" height="190" rx="6" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+        <text x="962" y="275" fill="#a5b4fc" font-size="10" font-weight="bold" text-anchor="middle">Automation</text>
+        <text x="962" y="292" fill="#a5b4fc" font-size="9.5" text-anchor="middle">maintanince room</text>
+        <text x="962" y="308" fill="#818cf8" font-size="9" text-anchor="middle">1st floor and</text>
+        <text x="962" y="335" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Shorting Platfrom</text>
+        <text x="962" y="352" fill="#c7d2fe" font-size="9.5" text-anchor="middle">2nd and 3rd Floor</text>
+
+        <!-- 4 AUTOMATION CONVEYOR BELTS -->
+        <g stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round">
+          <line x1="1040" y1="260" x2="1280" y2="260"/>
+          <line x1="1040" y1="305" x2="1280" y2="305"/>
+          <line x1="1040" y1="350" x2="1280" y2="350"/>
+          <line x1="1040" y1="395" x2="1280" y2="395"/>
+        </g>
+        <text x="1160" y="252" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Automation Belt</text>
+        <text x="1160" y="297" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Automation Belt</text>
+        <text x="1160" y="342" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Automation Belt</text>
+        <text x="1160" y="387" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Automation Belt</text>
+
+        <!-- LOAD POINT BIG (TOP RIGHT: 6 TRUCKS AT 45° - PACHHA FACES INWARD, NO ARROWS) -->
+        <text x="1150" y="195" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">Load Point big</text>
+        <!-- Pair 1 -->
+        <g transform="translate(1000, 160) rotate(245)">
+          <rect x="0" y="0" width="3" height="16" fill="#0f172a"/> <!-- Tailgate (পাছা) -->
+          <circle cx="1.5" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="1.5" cy="13" r="1.2" fill="#ef4444"/>
+          <rect x="3" y="0" width="32" height="16" rx="2" fill="#ea580c"/>
+          <rect x="35" y="1" width="10" height="14" rx="2" fill="#fed7aa"/> <!-- Cabin -->
+        </g>
+        <g transform="translate(1045, 160) rotate(245)">
+          <rect x="0" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="1.5" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="1.5" cy="13" r="1.2" fill="#ef4444"/>
+          <rect x="3" y="0" width="32" height="16" rx="2" fill="#ea580c"/>
+          <rect x="35" y="1" width="10" height="14" rx="2" fill="#fed7aa"/>
+        </g>
+        <!-- Pair 2 -->
+        <g transform="translate(1090, 160) rotate(245)">
+          <rect x="0" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="1.5" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="1.5" cy="13" r="1.2" fill="#ef4444"/>
+          <rect x="3" y="0" width="32" height="16" rx="2" fill="#ea580c"/>
+          <rect x="35" y="1" width="10" height="14" rx="2" fill="#fed7aa"/>
+        </g>
+        <g transform="translate(1135, 160) rotate(245)">
+          <rect x="0" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="1.5" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="1.5" cy="13" r="1.2" fill="#ef4444"/>
+          <rect x="3" y="0" width="32" height="16" rx="2" fill="#ea580c"/>
+          <rect x="35" y="1" width="10" height="14" rx="2" fill="#fed7aa"/>
+        </g>
+        <!-- Pair 3 -->
+        <g transform="translate(1180, 160) rotate(245)">
+          <rect x="0" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="1.5" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="1.5" cy="13" r="1.2" fill="#ef4444"/>
+          <rect x="3" y="0" width="32" height="16" rx="2" fill="#ea580c"/>
+          <rect x="35" y="1" width="10" height="14" rx="2" fill="#fed7aa"/>
+        </g>
+        <g transform="translate(1225, 160) rotate(245)">
+          <rect x="0" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="1.5" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="1.5" cy="13" r="1.2" fill="#ef4444"/>
+          <rect x="3" y="0" width="32" height="16" rx="2" fill="#ea580c"/>
+          <rect x="35" y="1" width="10" height="14" rx="2" fill="#fed7aa"/>
+        </g>
+        <!-- Pair 4 -->
+        <g transform="translate(1270, 160) rotate(245)">
+          <rect x="0" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="1.5" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="1.5" cy="13" r="1.2" fill="#ef4444"/>
+          <rect x="3" y="0" width="32" height="16" rx="2" fill="#ea580c"/>
+          <rect x="35" y="1" width="10" height="14" rx="2" fill="#fed7aa"/>
+        </g>
+        <g transform="translate(1315, 160) rotate(245)">
+          <rect x="0" y="0" width="3" height="16" fill="#0f172a"/>
+          <circle cx="1.5" cy="3" r="1.2" fill="#ef4444"/>
+          <circle cx="1.5" cy="13" r="1.2" fill="#ef4444"/>
+          <rect x="3" y="0" width="32" height="16" rx="2" fill="#ea580c"/>
+          <rect x="35" y="1" width="10" height="14" rx="2" fill="#fed7aa"/>
+        </g>
+
+        <!-- LOAD POINT LOWER: আপডেটেড ৮টি গাড়ি (8 BAYS - মিডিলে প্লেসড) -->
+        <g id="lower-load-point-8bays" transform="translate(70, 0)">
+          <!-- খাড়া লেবেল -->
+          <text x="1005" y="620" fill="#94a3b8" font-size="11" font-weight="bold" text-anchor="middle" transform="rotate(-90 1005,620)">Load Point (8 Bays)</text>
+          
+          <!-- ডক বাউন্ডারি লাইন ১ (টপ) -->
+          <line x1="910" y1="480" x2="980" y2="480" stroke="#475569" stroke-width="1.5"/>
+
+          <!-- বে ১ -->
+          <g transform="translate(915, 487)">
+            <rect x="54" y="0" width="4" height="18" fill="#0f172a"/>
+            <circle cx="56" cy="3.5" r="1.3" fill="#ef4444"/>
+            <circle cx="56" cy="14.5" r="1.3" fill="#ef4444"/>
+            <rect x="4" y="0" width="48" height="18" fill="#ea580c"/>
+            <rect x="-8" y="1.5" width="13" height="15" rx="2" fill="#fed7aa"/>
+            <rect x="-4" y="3" width="3" height="12" fill="#0284c7"/>
+          </g>
+          <line x1="910" y1="515" x2="980" y2="515" stroke="#475569" stroke-width="1.5"/>
+
+          <!-- বে ২ -->
+          <g transform="translate(915, 522)">
+            <rect x="54" y="0" width="4" height="18" fill="#0f172a"/>
+            <circle cx="56" cy="3.5" r="1.3" fill="#ef4444"/>
+            <circle cx="56" cy="14.5" r="1.3" fill="#ef4444"/>
+            <rect x="4" y="0" width="48" height="18" fill="#ea580c"/>
+            <rect x="-8" y="1.5" width="13" height="15" rx="2" fill="#fed7aa"/>
+            <rect x="-4" y="3" width="3" height="12" fill="#0284c7"/>
+          </g>
+          <line x1="910" y1="550" x2="980" y2="550" stroke="#475569" stroke-width="1.5"/>
+
+          <!-- বে ৩ -->
+          <g transform="translate(915, 557)">
+            <rect x="54" y="0" width="4" height="18" fill="#0f172a"/>
+            <circle cx="56" cy="3.5" r="1.3" fill="#ef4444"/>
+            <circle cx="56" cy="14.5" r="1.3" fill="#ef4444"/>
+            <rect x="4" y="0" width="48" height="18" fill="#ea580c"/>
+            <rect x="-8" y="1.5" width="13" height="15" rx="2" fill="#fed7aa"/>
+            <rect x="-4" y="3" width="3" height="12" fill="#0284c7"/>
+          </g>
+          <line x1="910" y1="585" x2="980" y2="585" stroke="#475569" stroke-width="1.5"/>
+
+          <!-- বে ৪ -->
+          <g transform="translate(915, 592)">
+            <rect x="54" y="0" width="4" height="18" fill="#0f172a"/>
+            <circle cx="56" cy="3.5" r="1.3" fill="#ef4444"/>
+            <circle cx="56" cy="14.5" r="1.3" fill="#ef4444"/>
+            <rect x="4" y="0" width="48" height="18" fill="#ea580c"/>
+            <rect x="-8" y="1.5" width="13" height="15" rx="2" fill="#fed7aa"/>
+            <rect x="-4" y="3" width="3" height="12" fill="#0284c7"/>
+          </g>
+          <line x1="910" y1="620" x2="980" y2="620" stroke="#475569" stroke-width="1.5"/>
+
+          <!-- বে ৫ -->
+          <g transform="translate(915, 627)">
+            <rect x="54" y="0" width="4" height="18" fill="#0f172a"/>
+            <circle cx="56" cy="3.5" r="1.3" fill="#ef4444"/>
+            <circle cx="56" cy="14.5" r="1.3" fill="#ef4444"/>
+            <rect x="4" y="0" width="48" height="18" fill="#ea580c"/>
+            <rect x="-8" y="1.5" width="13" height="15" rx="2" fill="#fed7aa"/>
+            <rect x="-4" y="3" width="3" height="12" fill="#0284c7"/>
+          </g>
+          <line x1="910" y1="655" x2="980" y2="655" stroke="#475569" stroke-width="1.5"/>
+
+          <!-- বে ৬ -->
+          <g transform="translate(915, 662)">
+            <rect x="54" y="0" width="4" height="18" fill="#0f172a"/>
+            <circle cx="56" cy="3.5" r="1.3" fill="#ef4444"/>
+            <circle cx="56" cy="14.5" r="1.3" fill="#ef4444"/>
+            <rect x="4" y="0" width="48" height="18" fill="#ea580c"/>
+            <rect x="-8" y="1.5" width="13" height="15" rx="2" fill="#fed7aa"/>
+            <rect x="-4" y="3" width="3" height="12" fill="#0284c7"/>
+          </g>
+          <line x1="910" y1="690" x2="980" y2="690" stroke="#475569" stroke-width="1.5"/>
+
+          <!-- বে ৭ -->
+          <g transform="translate(915, 697)">
+            <rect x="54" y="0" width="4" height="18" fill="#0f172a"/>
+            <circle cx="56" cy="3.5" r="1.3" fill="#ef4444"/>
+            <circle cx="56" cy="14.5" r="1.3" fill="#ef4444"/>
+            <rect x="4" y="0" width="48" height="18" fill="#ea580c"/>
+            <rect x="-8" y="1.5" width="13" height="15" rx="2" fill="#fed7aa"/>
+            <rect x="-4" y="3" width="3" height="12" fill="#0284c7"/>
+          </g>
+          <line x1="910" y1="725" x2="980" y2="725" stroke="#475569" stroke-width="1.5"/>
+
+          <!-- বে ৮ -->
+          <g transform="translate(915, 732)">
+            <rect x="54" y="0" width="4" height="18" fill="#0f172a"/>
+            <circle cx="56" cy="3.5" r="1.3" fill="#ef4444"/>
+            <circle cx="56" cy="14.5" r="1.3" fill="#ef4444"/>
+            <rect x="4" y="0" width="48" height="18" fill="#ea580c"/>
+            <rect x="-8" y="1.5" width="13" height="15" rx="2" fill="#fed7aa"/>
+            <rect x="-4" y="3" width="3" height="12" fill="#0284c7"/>
+          </g>
+          <!-- ডক বাউন্ডারি লাইন ৯ (বটম) -->
+          <line x1="910" y1="760" x2="980" y2="760" stroke="#475569" stroke-width="1.5"/>
+        </g>
+
+        <!-- ========================================================== -->
+        <!-- ZONE AREA: EXPANDED PER WHITE MARKUP (বিশাল বর্ধিত জোন এরিয়া) -->
+        <!-- ========================================================== -->
+        <!-- The Red Dashed Boundary runs down from top, cuts under the belts, and runs down to the left of the Zone Area -->
+        <path d="M 1360,45 L 1360,440 L 1200,440 L 1200,780" fill="none" stroke="#ef4444" stroke-width="4.5" stroke-dasharray="6,6"/>
+        
+        <!-- Large Prominent ZONE AREA Labels covering the expanded space -->
+        <text x="1220" y="540" fill="#f87171" font-size="28" font-weight="800" letter-spacing="3">ZONE AREA</text>
+        <text x="1440" y="250" fill="#f87171" font-size="18" font-weight="bold" letter-spacing="2" transform="rotate(90 1440,250)">Zone Area</text>
+
+        <!-- PRAYER ROOM & COMPRESSOR ROOM (BOTTOM RIGHT CORNER) -->
+        <g stroke="#ffffff" stroke-width="0" fill="#1e293b">
+          <!-- Prayer Room -->
+          <rect x="1360" y="625" width="115" height="80" rx="4"/>
+          <text x="1420" y="665" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Prayer</text>
+          <text x="1420" y="680" fill="#ffffff" font-size="10" text-anchor="middle">Room</text>
+
+          <!-- Red separator line between Prayer and Compressor room -->
+          <line x1="1360" y1="703" x2="1520" y2="703" stroke="#ef4444" stroke-width="3"/>
+
+          <!-- Compressor room -->
+          <rect x="1360" y="707" width="158" height="70" rx="4"/>
+          <text x="1452" y="740" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Compesher</text>
+          <text x="1452" y="750" fill="#ffffff" font-size="10" text-anchor="middle">room</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Interactive 3D Walkthrough Mode (100% Intact as Finalized) -->
+  <section id="walkthrough-3d" class="py-16 bg-slate-900/60 border-t border-slate-800 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
+        <div>
+          <div class="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-orange-400 mb-2">
+            <i data-lucide="footprints" class="w-4 h-4"></i>
+            <span>ফার্স্ট-পারসন সিমুলেশন ও ডকিং ভিউ</span>
+          </div>
+          <h2 class="text-3xl font-bold text-white">৩D ভার্চুয়াল ওয়াক-থ্রু (হেঁটে পর্যবেক্ষণ করুন)</h2>
+          <p class="text-slate-400 text-sm mt-1">মাঝের ২০' সোজা রাস্তা, ৫৫' পরে ৩' উচু প্ল্যাটফর্ম ও শেষে ডাউন-র‍্যাম্প এবং ওয়্যারহাউজে উন্মুক্ত প্রবেশদ্বার</p>
+        </div>
+
+        <!-- Mode Toggle & Quick Teleportation Buttons -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button id="btn-top-view" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs rounded-lg transition shadow-md flex items-center gap-1.5">
+            <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+            <span>টপ ভিউ (Top 90°)</span>
+          </button>
+          
+          <button id="btn-orbit-mode" class="px-3.5 py-1.5 bg-orange-500 text-slate-950 font-bold text-xs rounded-lg transition shadow-md">
+            ওভারভিউ ড্রোন ভিউ
+          </button>
+          <button id="btn-walk-mode" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs rounded-lg transition border border-slate-700">
+            হেঁটে দেখার মোড (Walk Mode)
+          </button>
+          <span class="text-slate-600 text-xs hidden sm:inline">| জাম্প:</span>
+          <button onclick="teleportTo(0, 5, 0)" class="px-2.5 py-1 bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-[11px] rounded border border-slate-700">গেট (১৫')</button>
+          <button onclick="teleportTo(35, 5, 0)" class="px-2.5 py-1 bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-[11px] rounded border border-slate-700">আনলোড (৪০')</button>
+          <button onclick="teleportTo(55, 6, 0)" class="px-2.5 py-1 bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-[11px] rounded border border-slate-700">৩' আপ-র‍্যাম্প</button>
+          <button onclick="teleportTo(110, 8.5, -12)" class="px-2.5 py-1 bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-[11px] rounded border border-slate-700">কম্পিউটার ১</button>
+          <button onclick="teleportTo(110, 8.5, 12)" class="px-2.5 py-1 bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-[11px] rounded border border-slate-700">কম্পিউটার ২</button>
+          <button onclick="teleportTo(155, 6, 0)" class="px-2.5 py-1 bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-[11px] rounded border border-slate-700">ডাউন-র‍্যাম্প</button>
+          <button onclick="teleportTo(175, 5.5, 0)" class="px-2.5 py-1 bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-[11px] rounded border border-slate-700">ওয়্যারহাউজ</button>
+        </div>
+      </div>
+
+      <!-- 3D Canvas Box -->
+      <div class="w-full h-[580px] bg-[#050811] border border-slate-800 rounded-2xl overflow-hidden relative shadow-2xl">
+        <div id="canvas-container" class="w-full h-full"></div>
+
+        <!-- On-screen Navigation Info -->
+        <div class="absolute top-4 left-4 bg-slate-950/85 backdrop-blur-md px-4 py-2.5 rounded-xl border border-slate-800 text-xs text-slate-300 pointer-events-none">
+          <p class="font-bold text-white flex items-center gap-1.5 mb-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span id="current-mode-text">মোড: ড্রোন ওভারভিউ (মাউস দিয়ে রোটেট ও জুম করুন)</span>
+          </p>
+          <p class="text-[11px] text-slate-400">ওয়াক মোডে: <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-orange-400">W</kbd> সামনে, <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-orange-400">S</kbd> পেছনে, <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-orange-400">A</kbd> বাঁয়ে, <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-orange-400">D</kbd> ডানে</p>
+        </div>
+
+        <!-- On-Screen Virtual Walking Controller for Mobile/Mouse -->
+        <div class="absolute bottom-5 right-5 flex flex-col items-center gap-1 bg-slate-950/90 p-2.5 rounded-xl border border-slate-800">
+          <button onmousedown="startMove('forward')" onmouseup="stopMove()" ontouchstart="startMove('forward')" ontouchend="stopMove()" class="w-9 h-9 bg-slate-800 hover:bg-slate-700 rounded flex items-center justify-center font-bold text-xs text-white">▲</button>
+          <div class="flex gap-1">
+            <button onmousedown="startMove('left')" onmouseup="stopMove()" ontouchstart="startMove('left')" ontouchend="stopMove()" class="w-9 h-9 bg-slate-800 hover:bg-slate-700 rounded flex items-center justify-center font-bold text-xs text-white">◀</button>
+            <button onmousedown="startMove('backward')" onmouseup="stopMove()" ontouchstart="startMove('backward')" ontouchend="stopMove()" class="w-9 h-9 bg-slate-800 hover:bg-slate-700 rounded flex items-center justify-center font-bold text-xs text-white">▼</button>
+            <button onmousedown="startMove('right')" onmouseup="stopMove()" ontouchstart="startMove('right')" ontouchend="stopMove()" class="w-9 h-9 bg-slate-800 hover:bg-slate-700 rounded flex items-center justify-center font-bold text-xs text-white">▶</button>
+          </div>
+          <span class="text-[10px] text-slate-500 mt-1">ওয়াক প্যাড</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trip SLA Commitment -->
+  <section id="trip-sla" class="py-16 px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">এসএলএ অন-টাইম নিশ্চয়তা</span>
+      <h2 class="text-3xl font-bold text-white mt-1">১৬৫ ফুট শেড চালুর পর ট্রিপ সময়সূচি</h2>
+      <p class="text-slate-400 text-sm mt-2">৫টি আনলোড বে ও ১৬টি লোড বে একযোগে সচল থাকায় টার্নঅ্যারাউন্ড টাইম ৬০% কমবে</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl relative shadow-xl">
+        <div class="flex items-center justify-between mb-3">
+          <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold rounded-full">১ম ট্রিপ হাবে পৌছাবে</span>
+          <span class="text-emerald-400 font-mono text-base font-bold">০৮:৩০ – ০৯:০০ AM</span>
+        </div>
+        <h4 class="text-white font-bold text-sm mb-2">ইনসাইড হাব এবং আউটসাইড হাব ও দূরপাল্লার রুট</h4>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          ভোর ৩:০০ থেকে ৬:০০ টার মধ্যে নতুন ৫টি আনলোড বে সহ পুরোনো ৪টি মিলে মোট ৯টি গাড়ি- একযোগে পার্সেল খালাস হবে। চিটাগাং পার্সেল ১২x১৪ বাফারে থাকায় ফ্লোর সর্বদা ফ্রি থাকবে।
+        </p>
+      </div>
+
+      <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl relative shadow-xl">
+        <div class="flex items-center justify-between mb-3">
+          <span class="px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold rounded-full">২য় ট্রিপ হাবে পৌছাবে</span>
+          <span class="text-amber-400 font-mono text-base font-bold">১২:০০ – ০১:০০ PM</span>
+        </div>
+        <h4 class="text-white font-bold text-sm mb-2">ইনসাইড হাব এবং আউটসাইড হাব ও দূরপাল্লার রুট</h4>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          নতুন ১৬টি লোডিং বে সহ পুরোনো ১৬ মিলে মোট ৩২ গাড়ি- একযোগে পার্সেল লোড হবে। ড্রাইভাররা কোনো পেছানো (Reverse) ছাড়াই সোজা ৪৫° এক্সিট দিয়ে হাইওয়েতে রওনা দেবে।
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer with Full Credits -->
+  <footer class="py-12 border-t border-slate-800 bg-[#04070d] text-center text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-left">
+        <p class="font-bold text-sm text-white">Steadfast Courier Ltd. — Cumilla Warehouse</p>
+        <p class="text-slate-500 mt-0.5">১৬৫' × ৯০' হাইব্রিড শেড ও ডক অপটিমাইজেশন প্রজেক্ট</p>
+      </div>
+
+      <!-- Author Attribution Badge -->
+      <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl flex items-center space-x-3 text-left">
+        <div class="w-10 h-10 rounded-lg bg-orange-500/20 border border-orange-500/40 text-orange-400 flex items-center justify-center font-bold">
+          AR
+        </div>
+        <div>
+          <p class="font-bold text-white text-xs">Md Asraful Alam Redoy</p>
+          <p class="text-[11px] text-orange-400">Executive - Warehouse Operation</p>
+          <a href="https://asraful-portfolio-jet.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-[10px] text-slate-400 hover:text-white underline">
+            Portfolio
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js 3D Simulation Script (100% Intact as Finalized) -->
+  <script>
+    lucide.createIcons();
+
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x060912);
+    scene.fog = new THREE.FogExp2(0x060912, 0.0035);
+
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1200);
+    camera.position.set(82, 55, 95);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    container.appendChild(renderer.domElement);
+
+    // Orbit Controls
+    const orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
+    orbitControls.enableDamping = true;
+    orbitControls.dampingFactor = 0.05;
+    orbitControls.target.set(82, 1.5, 0);
+
+    // Lighting
+    const ambient = new THREE.AmbientLight(0xffffff, 0.75);
+    scene.add(ambient);
+
+    const sun = new THREE.DirectionalLight(0xffedd5, 1.3);
+    sun.position.set(70, 90, 50);
+    sun.castShadow = true;
+    sun.shadow.mapSize.width = 2048;
+    sun.shadow.mapSize.height = 2048;
+    scene.add(sun);
+
+    // Ground Floor: X goes from 0 to 165 (Length), Z goes from -45 to +45 (Width = 90)
+    const groundGeo = new THREE.PlaneGeometry(300, 140);
+    const groundMat = new THREE.MeshStandardMaterial({ color: 0x090e17, roughness: 0.85 });
+    const ground = new THREE.Mesh(groundGeo, groundMat);
+    ground.position.set(110, 0, 0);
+    ground.rotation.x = -Math.PI / 2;
+    ground.receiveShadow = true;
+    scene.add(ground);
+
+    const grid = new THREE.GridHelper(300, 60, 0x1e293b, 0x0f172a);
+    grid.position.set(110, 0.02, 0);
+    scene.add(grid);
+
+    // ==========================================================
+    // 1. CENTRAL 20-FOOT ROADWAY WITH UP-RAMP & DOWN-RAMP
+    // ==========================================================
+    // A: Ground level road from X = 0 to X = 55 (55' length, 20' width)
+    const flatRoadGeo = new THREE.PlaneGeometry(55, 20);
+    const roadMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.6 });
+    const flatRoad = new THREE.Mesh(flatRoadGeo, roadMat);
+    flatRoad.rotation.x = -Math.PI / 2;
+    flatRoad.position.set(27.5, 0.06, 0);
+    flatRoad.receiveShadow = true;
+    scene.add(flatRoad);
+
+    // Yellow Center Dashed Line on Flat Road
+    for (let x = 5; x <= 50; x += 8) {
+      const stripe = new THREE.Mesh(
+        new THREE.PlaneGeometry(4, 0.6),
+        new THREE.MeshBasicMaterial({ color: 0xfacc15 })
+      );
+      stripe.rotation.x = -Math.PI / 2;
+      stripe.position.set(x, 0.08, 0);
+      scene.add(stripe);
+    }
+
+    // B: 3-foot Rising UP-RAMP from X = 55 to X = 70 (15' length, rising 0 -> 3 ft)
+    const rampLength = 15;
+    const rampHeight = 3.0;
+    const rampAngle = Math.atan2(rampHeight, rampLength);
+    const rampGeo = new THREE.BoxGeometry(Math.sqrt(rampLength*rampLength + rampHeight*rampHeight), 0.4, 20);
+    const rampMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.5 });
+    const upRamp = new THREE.Mesh(rampGeo, rampMat);
+    upRamp.position.set(55 + rampLength / 2, rampHeight / 2, 0);
+    upRamp.rotation.z = rampAngle;
+    upRamp.receiveShadow = true;
+    scene.add(upRamp);
+
+    // C: Elevated Horizontal Platform from X = 70 to X = 150 (80' length, 20' width, 3' height)
+    const platLength = 80;
+    const platGeo = new THREE.BoxGeometry(platLength, rampHeight, 20);
+    const platMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.5 });
+    const platform = new THREE.Mesh(platGeo, platMat);
+    platform.position.set(70 + platLength / 2, rampHeight / 2, 0);
+    platform.receiveShadow = true;
+    scene.add(platform);
+
+    // Hazard Stripes / Edges along 3-foot elevated platform
+    const edgeGeo = new THREE.BoxGeometry(platLength, 0.3, 0.6);
+    const edgeMat = new THREE.MeshBasicMaterial({ color: 0xf59e0b });
+    const edgeNorth = new THREE.Mesh(edgeGeo, edgeMat);
+    edgeNorth.position.set(70 + platLength / 2, rampHeight + 0.15, -9.7);
+    scene.add(edgeNorth);
+
+    const edgeSouth = new THREE.Mesh(edgeGeo, edgeMat);
+    edgeSouth.position.set(70 + platLength / 2, rampHeight + 0.15, 9.7);
+    scene.add(edgeSouth);
+
+    // D: 3-foot Sloping DOWN-RAMP from X = 150 to X = 165 (15' length, dropping 3 -> 0 ft)
+    const downRamp = new THREE.Mesh(rampGeo, rampMat);
+    downRamp.position.set(150 + rampLength / 2, rampHeight / 2, 0);
+    downRamp.rotation.z = -rampAngle;
+    downRamp.receiveShadow = true;
+    scene.add(downRamp);
+
+    // E: Ground level transition road inside Warehouse (X = 165 to 195)
+    const exitRoad = new THREE.Mesh(new THREE.PlaneGeometry(30, 20), roadMat);
+    exitRoad.rotation.x = -Math.PI / 2;
+    exitRoad.position.set(180, 0.06, 0);
+    exitRoad.receiveShadow = true;
+    scene.add(exitRoad);
+
+    // Parcel Trolley Boxes on the 3-foot elevated platform
+    function createTrolleyBox(x, z) {
+      const trolley = new THREE.Group();
+      const frameGeo = new THREE.BoxGeometry(2.5, 3.2, 2.5);
+      const frameMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, roughness: 0.3 });
+      const frame = new THREE.Mesh(frameGeo, frameMat);
+      frame.position.y = 1.6;
+      trolley.add(frame);
+
+      const wGeo = new THREE.CylinderGeometry(0.2, 0.2, 0.2);
+      const wMat = new THREE.MeshBasicMaterial({ color: 0x0f172a });
+      for (let dx of [-1, 1]) {
+        for (let dz of [-1, 1]) {
+          const w = new THREE.Mesh(wGeo, wMat);
+          w.position.set(dx, 0.1, dz);
+          trolley.add(w);
+        }
+      }
+      trolley.position.set(x, rampHeight, z);
+      return trolley;
+    }
+
+    scene.add(createTrolleyBox(80, -3));
+    scene.add(createTrolleyBox(95, 4));
+    scene.add(createTrolleyBox(118, -4));
+    scene.add(createTrolleyBox(138, 2));
+
+    // ==========================================================
+    // 2. VEHICLE BUILDER (Clean, Proportional, No Overlap)
+    // ==========================================================
+    function createTruck(bodyColor) {
+      const truck = new THREE.Group();
+
+      const boxGeo = new THREE.BoxGeometry(5.2, 5.2, 13.5);
+      const boxMat = new THREE.MeshStandardMaterial({ color: bodyColor, roughness: 0.35 });
+      const box = new THREE.Mesh(boxGeo, boxMat);
+      box.position.set(0, 3.8, -3.2);
+      box.castShadow = true;
+      truck.add(box);
+
+      const doorGeo = new THREE.BoxGeometry(4.8, 4.6, 0.15);
+      const doorMat = new THREE.MeshBasicMaterial({ color: 0x0f172a });
+      const door = new THREE.Mesh(doorGeo, doorMat);
+      door.position.set(0, 3.8, -10.0);
+      truck.add(door);
+
+      const cabGeo = new THREE.BoxGeometry(5.0, 4.2, 4.5);
+      const cabMat = new THREE.MeshStandardMaterial({ color: 0xf1f5f9, roughness: 0.2 });
+      const cab = new THREE.Mesh(cabGeo, cabMat);
+      cab.position.set(0, 3.2, 5.2);
+      cab.castShadow = true;
+      truck.add(cab);
+
+      const winGeo = new THREE.BoxGeometry(4.5, 1.8, 0.2);
+      const winMat = new THREE.MeshBasicMaterial({ color: 0x0284c7 });
+      const win = new THREE.Mesh(winGeo, winMat);
+      win.position.set(0, 4.0, 7.5);
+      truck.add(win);
+
+      const wheelGeo = new THREE.CylinderGeometry(0.9, 0.9, 0.6, 16);
+      const wheelMat = new THREE.MeshStandardMaterial({ color: 0x111827 });
+      wheelGeo.rotateZ(Math.PI / 2);
+      for (let zOffset of [-7, -2, 5]) {
+        const wL = new THREE.Mesh(wheelGeo, wheelMat);
+        wL.position.set(-2.7, 0.9, zOffset);
+        truck.add(wL);
+
+        const wR = new THREE.Mesh(wheelGeo, wheelMat);
+        wR.position.set(2.7, 0.9, zOffset);
+        truck.add(wR);
+      }
+
+      return truck;
+    }
+
+    // ==========================================================
+    // 3. 5 UNLOAD TRUCKS (Flanking Roadway, Road is Clear)
+    // ==========================================================
+    for (let i = 0; i < 3; i++) {
+      const zPos = -18 - (i * 9.5);
+      const uTruck = createTruck(0xf97316);
+      uTruck.rotation.y = -Math.PI / 2;
+      uTruck.position.set(32, 0, zPos);
+      scene.add(uTruck);
+    }
+
+    const sTruck1 = createTruck(0xf97316);
+    sTruck1.rotation.y = -Math.PI / 2;
+    sTruck1.position.set(32, 0, 18);
+    scene.add(sTruck1);
+
+    const sTruck2_CTG = createTruck(0xdc2626);
+    sTruck2_CTG.rotation.y = -Math.PI / 2;
+    sTruck2_CTG.position.set(32, 0, 29);
+    scene.add(sTruck2_CTG);
+
+    // ==========================================================
+    // 4. COMPUTER SETUP STATIONS (2 Stations in 4' Spaces)
+    // ==========================================================
+    function createComputerStation(x, z, rotY) {
+      const station = new THREE.Group();
+
+      const deskGeo = new THREE.BoxGeometry(4, 3.2, 3);
+      const deskMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.3 });
+      const desk = new THREE.Mesh(deskGeo, deskMat);
+      desk.position.y = 1.6;
+      station.add(desk);
+
+      const monGeo = new THREE.BoxGeometry(1.6, 1.2, 0.1);
+      const monMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
+      const mon1 = new THREE.Mesh(monGeo, monMat);
+      mon1.position.set(-0.9, 3.8, 0);
+      station.add(mon1);
+
+      const mon2 = new THREE.Mesh(monGeo, monMat);
+      mon2.position.set(0.9, 3.8, 0);
+      station.add(mon2);
+
+      const chairGeo = new THREE.BoxGeometry(1.5, 2.5, 1.5);
+      const chairMat = new THREE.MeshStandardMaterial({ color: 0x0f172a });
+      const chair = new THREE.Mesh(chairGeo, chairMat);
+      chair.position.set(0, 1.25, 2.2);
+      station.add(chair);
+
+      const poleGeo = new THREE.CylinderGeometry(0.1, 0.1, 8);
+      const pole = new THREE.Mesh(poleGeo, new THREE.MeshStandardMaterial({ color: 0x64748b }));
+      pole.position.set(1.8, 4, -1.2);
+      station.add(pole);
+
+      const lampGeo = new THREE.BoxGeometry(1.2, 0.2, 0.6);
+      const lamp = new THREE.Mesh(lampGeo, new THREE.MeshBasicMaterial({ color: 0x34d399 }));
+      lamp.position.set(1.4, 8, -1.2);
+      station.add(lamp);
+
+      station.position.set(x, rampHeight, z);
+      station.rotation.y = rotY;
+      return station;
+    }
+
+    scene.add(createComputerStation(111, -11.8, 0));
+    scene.add(createComputerStation(111, 11.8, Math.PI));
+
+    // ==========================================================
+    // 5. 16 LOAD TRUCKS AT 45° WITH DEDICATED 4' COMPUTER GAPS
+    // ==========================================================
+    const northXPositions = [75, 84, 93, 102, 120, 129, 138, 147];
+    northXPositions.forEach((xPos) => {
+      const truck = createTruck(0xf59e0b);
+      truck.rotation.y = -Math.PI * 0.75;
+      truck.position.set(xPos, 0, -21.5);
+      scene.add(truck);
+    });
+
+    const southXPositions = [75, 84, 93, 102, 120, 129, 138, 147];
+    southXPositions.forEach((xPos) => {
+      const truck = createTruck(0xf59e0b);
+      truck.rotation.y = -Math.PI * 0.25;
+      truck.position.set(xPos, 0, 21.5);
+      scene.add(truck);
+    });
+
+    // ==========================================================
+    // 6. SHED STRUCTURE (100' Shed Canopy from X = 55 to 155)
+    // ==========================================================
+    const shedPillars = new THREE.Group();
+    for (let x = 55; x <= 155; x += 25) {
+      const pN = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 18), new THREE.MeshStandardMaterial({ color: 0x38bdf8 }));
+      pN.position.set(x, 9, -44);
+      shedPillars.add(pN);
+
+      const pS = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 18), new THREE.MeshStandardMaterial({ color: 0x38bdf8 }));
+      pS.position.set(x, 9, 44);
+      shedPillars.add(pS);
+    }
+    scene.add(shedPillars);
+
+    const roof = new THREE.Mesh(
+      new THREE.BoxGeometry(105, 0.6, 92),
+      new THREE.MeshStandardMaterial({ color: 0x0284c7, transparent: true, opacity: 0.22 })
+    );
+    roof.position.set(105, 18, 0);
+    scene.add(roof);
+
+    // ==========================================================
+    // 7. WAREHOUSE INTERIOR & WIDE OPEN ENTRANCE
+    // ==========================================================
+    const wallMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.7 });
+    const wallNorth = new THREE.Mesh(new THREE.BoxGeometry(4, 22, 18), wallMat);
+    wallNorth.position.set(165, 11, -37);
+    scene.add(wallNorth);
+
+    const wallSouth = new THREE.Mesh(new THREE.BoxGeometry(4, 22, 18), wallMat);
+    wallSouth.position.set(165, 11, 37);
+    scene.add(wallSouth);
+
+    const portalBeam = new THREE.Mesh(
+      new THREE.BoxGeometry(4.2, 3, 56),
+      new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.5 })
+    );
+    portalBeam.position.set(165, 20.5, 0);
+    scene.add(portalBeam);
+
+    for (let b = -18; b <= 18; b += 12) {
+      const belt = new THREE.Mesh(
+        new THREE.BoxGeometry(22, 1.2, 2.5),
+        new THREE.MeshBasicMaterial({ color: 0x38bdf8 })
+      );
+      belt.position.set(180, 4.5, b);
+      scene.add(belt);
+    }
+
+    // ==========================================================
+    // 8. INTERACTIVE CAMERA VIEWS & WALKTHROUGH CONTROLS
+    // ==========================================================
+    let isWalkMode = false;
+    const moveState = { forward: false, backward: false, left: false, right: false };
+    const walkSpeed = 0.85;
+
+    const btnTop = document.getElementById('btn-top-view');
+    const btnOrbit = document.getElementById('btn-orbit-mode');
+    const btnWalk = document.getElementById('btn-walk-mode');
+    const modeText = document.getElementById('current-mode-text');
+
+    function resetButtons() {
+      if (btnTop) btnTop.className = "px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs rounded-lg transition border border-slate-700 flex items-center gap-1.5";
+      btnOrbit.className = "px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs rounded-lg transition border border-slate-700";
+      btnWalk.className = "px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs rounded-lg transition border border-slate-700";
+    }
+
+    if (btnTop) {
+      btnTop.addEventListener('click', () => {
+        isWalkMode = false;
+        orbitControls.enabled = true;
+        resetButtons();
+        btnTop.className = "px-3 py-1.5 bg-indigo-600 text-white font-bold text-xs rounded-lg transition shadow-md flex items-center gap-1.5";
+        
+        camera.position.set(82.5, 130, 0.001);
+        orbitControls.target.set(82.5, 0, 0);
+        modeText.innerText = "মোড: টপ ভিউ ৯০° (স্ক্রিনশটের সাথে হুবহু মিলান)";
+      });
+    }
+
+    btnOrbit.addEventListener('click', () => {
+      isWalkMode = false;
+      orbitControls.enabled = true;
+      resetButtons();
+      btnOrbit.className = "px-3.5 py-1.5 bg-orange-500 text-slate-950 font-bold text-xs rounded-lg transition shadow-md";
+      
+      camera.position.set(82, 55, 95);
+      orbitControls.target.set(82, 1.5, 0);
+      modeText.innerText = "মোড: ড্রোন ওভারভিউ (মাউস দিয়ে রোটেট ও জুম করুন)";
+    });
+
+    btnWalk.addEventListener('click', () => {
+      isWalkMode = true;
+      orbitControls.enabled = false;
+      resetButtons();
+      btnWalk.className = "px-3.5 py-1.5 bg-emerald-500 text-slate-950 font-bold text-xs rounded-lg transition shadow-md";
+      
+      camera.position.set(5, 5.5, 0);
+      camera.lookAt(60, 5.5, 0);
+      modeText.innerText = "মোড: ফার্স্ট-পারসন ওয়াক (W, A, S, D দিয়ে সোজা ভিতরে হাঁটুন)";
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!isWalkMode) return;
+      if (e.code === 'KeyW' || e.code === 'ArrowUp') moveState.forward = true;
+      if (e.code === 'KeyS' || e.code === 'ArrowDown') moveState.backward = true;
+      if (e.code === 'KeyA' || e.code === 'ArrowLeft') moveState.left = true;
+      if (e.code === 'KeyD' || e.code === 'ArrowRight') moveState.right = true;
+    });
+
+    window.addEventListener('keyup', (e) => {
+      if (e.code === 'KeyW' || e.code === 'ArrowUp') moveState.forward = false;
+      if (e.code === 'KeyS' || e.code === 'ArrowDown') moveState.backward = false;
+      if (e.code === 'KeyA' || e.code === 'ArrowLeft') moveState.left = false;
+      if (e.code === 'KeyD' || e.code === 'ArrowRight') moveState.right = false;
+    });
+
+    window.startMove = function(direction) {
+      if (!isWalkMode) btnWalk.click();
+      moveState[direction] = true;
+    }
+    window.stopMove = function() {
+      moveState.forward = false;
+      moveState.backward = false;
+      moveState.left = false;
+      moveState.right = false;
+    }
+
+    window.teleportTo = function(x, y, z) {
+      if (!isWalkMode) btnWalk.click();
+      camera.position.set(x, y, z);
+      camera.lookAt(x + 30, y, z);
+    }
+
+    function updateWalk() {
+      if (!isWalkMode) return;
+
+      const dir = new THREE.Vector3();
+      camera.getWorldDirection(dir);
+      dir.y = 0;
+      dir.normalize();
+
+      const side = new THREE.Vector3(-dir.z, 0, dir.x);
+
+      if (moveState.forward) camera.position.addScaledVector(dir, walkSpeed);
+      if (moveState.backward) camera.position.addScaledVector(dir, -walkSpeed);
+      if (moveState.left) camera.position.addScaledVector(side, -walkSpeed);
+      if (moveState.right) camera.position.addScaledVector(side, walkSpeed);
+
+      let groundHeight = 0;
+      if (camera.position.x <= 55) {
+        groundHeight = 0;
+      } else if (camera.position.x > 55 && camera.position.x <= 70) {
+        groundHeight = ((camera.position.x - 55) / 15) * 3.0;
+      } else if (camera.position.x > 70 && camera.position.x <= 150) {
+        groundHeight = 3.0;
+      } else if (camera.position.x > 150 && camera.position.x <= 165) {
+        groundHeight = 3.0 - (((camera.position.x - 150) / 15) * 3.0);
+      } else {
+        groundHeight = 0;
+      }
+      camera.position.y = Math.max(0, groundHeight) + 5.5;
+    }
+
+    window.addEventListener('resize', () => {
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (!isWalkMode) {
+        orbitControls.update();
+      } else {
+        updateWalk();
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+</html>
